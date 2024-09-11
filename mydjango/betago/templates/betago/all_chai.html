@@ -1,0 +1,27 @@
+{% extends "laylout.html" %}
+
+{% block title %}
+    All Chai
+{% endblock title %}
+
+{% block content %}
+<h1>All Type of available chai</h1>
+
+<div class="grid grid-cols-3 gap-4 m-4">
+{% for chai in chais  %}
+    <div class="bg-blue-900 p-5 rounded">
+        <img class = "rounded shadow-lg"src="{{chai.image.url}}" alt="">
+        <h3 class="text-2xl font-bold">{{chai.name}}</h3>
+        <a href="{% url 'chai_details' chai.id %}">
+            <button 
+            type = "button"
+            class="bg-orange-500 w-[100%] hover:bg-orange-600 text-white font-bold py-2 px-4 rounded"
+            >
+                {{chai.type}} - {{chai.id}}
+            </button>
+        </a>
+    </div>
+{% endfor %}
+</div>
+{% endblock content %}
+

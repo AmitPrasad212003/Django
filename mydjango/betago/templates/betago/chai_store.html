@@ -1,0 +1,22 @@
+{% extends "laylout.html" %}
+
+
+{% block content %}
+     <h1>Test content for form</h1>
+     <form  action="" method="POST">
+     {% csrf_token %}
+        {{form}}
+        <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded"
+> Search store </button>
+     </form>
+
+{% if stores %}
+    <h2>Stores available</h2>
+    <ul>
+        {% for store in stores %}
+            <li>{{ store.name}} -- {{store.location}}</li>
+        {% endfor %}
+    </ul>
+
+{% endif %}
+{% endblock content %}

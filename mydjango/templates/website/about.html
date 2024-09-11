@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Web Developer</title>
+    <link rel="stylesheet" href="{% static 'about.css' %}">
+</head>
+<body>
+    <header>
+        <h1>About Me</h1>
+    </header>
+    <main>
+        <section class="intro">
+            {% comment %} <img src="profile.jpg" alt="Profile Picture" class="profile-pic"> {% endcomment %}
+            <h2>Hi, I'm Amit Prasad</h2>
+            <p>I'm a passionate web developer with a love for creating interactive and user-friendly web applications. With a background in both front-end and back-end development, I specialize in building responsive and efficient websites.</p>
+        </section>
+        <section class="skills">
+            <h3>Skills</h3>
+            <ul>
+                <li>HTML5 & CSS3</li>
+                <li>JavaScript & jQuery</li>
+                <li>React & Vue.js</li>
+                <li>Node.js & Express</li>
+                <li>Git & Version Control</li>
+            </ul>
+        </section>
+        <section class="contact">
+            <h3>Contact Me</h3>
+            <p>If you'd like to get in touch, feel free to email me at <a href="mailto:your.email@example.com">your.email@example.com</a>.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Amit Prasad. All rights reserved.</p>
+    </footer>
+</body>
+</html>
