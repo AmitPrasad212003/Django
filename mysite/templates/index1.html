@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="section">
+        <h1>Welcome to mysite.home {{bdata}}</h1>
+
+        <marquee  >
+            {% for news in newsData  %}
+                <b><a href="/newsDetails/{{news.news_slug}}">{{news.news_title}}</a> </b> &nbsp;&nbsp;&nbsp;
+            {% endfor %}
+        </marquee>
+
+
+        <div class="row">
+            <div class="col-12">
+                <form action="" method="get">
+                <input type="text" name="servicename" />
+                <input type="submit" name="" value="Search" />
+                </form>
+            </div>
+        </div>
+        <br><br>
+
+
+
+
+
+
+
+
+
+
+
+        {% for n in serviceData %}
+            {{n.service_icon}}
+            <br>
+            <br>
+            {{n.service_title}}
+            <br>
+            <br>
+            {% comment %} {{n.service_des | safe }} {% endcomment %}
+            {% comment %} {{n.service_des | upper }} {% endcomment %}
+            {{n.service_des | upper |safe }}
+            <br>
+            <br>
+        {% empty %}
+        NO Data found
+        {%endfor%}
+         <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if serviceData.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="/homepage/?page=1" aria-label="Previous">
+                <span aria-hidden="true">First</span>
+                {% comment %} <span class="sr-only">First</span> {% endcomment %}
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="/homepage/?page={{serviceData.previous_page_number}}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            {% endif %}
+            {% for n in totalpagelist %}
+            <li class="page-item"><a class="page-link" href="/homepage/?page={{n}}">{{n}}</a></li>
+            {% endfor %}
+            {% if serviceData.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="/homepage/?page={{serviceData.next_page_number}} aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="/homepage/?page={{lastpage}} aria-label="Next">
+                    <span aria-hidden="true">last</span>
+                    {% comment %} <span class="sr-only"></span> {% endcomment %}
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+        {% comment %} <h1>{{output}}</h1>
+
+        {% for n in clist %}
+        <div>{{forloop.counter0}} {{n}}</div>
+        {% endfor %}
+        <br>
+        {% for n in clist %}
+        <div>{{forloop.revcounter0}} {{n}}</div>
+        {% endfor %}
+        <br>
+        {% for n in clist %}
+        <div>{{forloop.first}} {{n}}</div>
+        {% endfor %}
+        <br>
+        {% for n in clist %}
+        <div>{{forloop.last}} {{n}}</div>
+        {% endfor %}
+        <br>
+        <table border="1" cellpadding="10"> {% endcomment %}
+            {% comment %} <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+            </tr>
+            {% for d in student_details%}
+            <tr>
+                <td>{{d.name}}</td>
+                <td>{{d.phone}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+        <br>
+    
+        {% if number|length > 0 %}
+            {% for n in number %}
+                {% if n > 20 %}
+                    <div>{{n}}</div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            No Data Found
+        {% endif %} {% endcomment %}
+    </div>
+   
+
+{% endblock content %}

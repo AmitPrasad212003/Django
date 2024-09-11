@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>calculator</h1>
+<br><br>
+<div class="row">
+    <div class="col-12">
+        <form action="" method="post">
+        {% csrf_token %}
+            <label for="num1">Value 1 : </label>
+            <input type="text" name="num1" class="form-control">
+            <br><br>
+            <label for="">Select OPR..  </label>
+
+            <select name="opr" id="">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <br><br>
+            <label for="num2">Value 2 : </label>
+            <input type="text" name="num2" class="form-control">
+            <br><br>
+            <button text="submit"> Calculate </button>
+            <br><br>
+            <label for="output"> Output </label>
+            <input type="text" value = "{{c}}"name="output">
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

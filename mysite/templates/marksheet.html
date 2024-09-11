@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>calculator</h1>
+<br><br>
+<div class="row">
+    <div class="col-12">
+        <form action="" method="post">
+        {% csrf_token %}
+            <label for="num1">subject 1 : </label>
+            <input type="text" name="subject1" class="form-control">
+            <br><br>
+            <label for="num1">subject 2 : </label>
+            <input type="text" name="subject2" class="form-control">
+            <br><br>
+            <label for="num1">subject 3 : </label>
+            <input type="text" name="subject3" class="form-control">
+            <br><br>
+            <label for="num1">subject 4 : </label>
+            <input type="text" name="subject4" class="form-control">
+            <br><br>
+            <label for="num1">subject 5 : </label>
+            <input type="text" name="subject5" class="form-control">
+            <br><br>
+            
+            <button text="submit"> Marksheet </button>
+            <br><br>
+            <label for="output"> Total </label>
+            <input type="text" value = "{{total}}"name="output">
+            <br><br>
+            <label for="per"> Percentage </label>
+            <input type="text" value = "{{per}}"name="per">
+            <br><br>
+            <label for="Division"> Division </label>
+            <input type="text" value = "{{div}}"name="Division">
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+        <h1>User Form</h1>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-12">
+            <form id="form1" method="post" action=" {% url 'submitfrom' %}">
+                {% csrf_token %}
+                {{form}}
+                {% comment %} <div>
+                    <label for="num1">Value1:</label>
+                    <input type="text" name="num1" id="num1" value="{{n1}}" class="form-control">
+                </div>
+                <br><br>
+                <div>
+                    <label for="num2">Value2:</label>
+                    <input type="text" name="num2" id="num2" value="{{n2}}" class="form-control">
+                </div>
+                <br><br>
+                <div>
+                    <label for="num3">Value3:</label>
+                    <input type="text" name="num3" id="num3"value="{{n3}}"  class="form-control">
+                </div>
+                <br><br> {% endcomment %}
+                <div>
+                    <input type="submit" />
+                </div>
+                <br>
+                output : 
+                <input type="text" value="{{output}}" />
+            </form>
+        </div>
+    </div>
+{% endblock content %}
